@@ -1,6 +1,9 @@
 # canvas
 canvas study
 
+## first
+![Image text](img/canvasfirst.png)
+
 ## 一些小知识
 0. canvas是基于状态的绘制。<br/>
 1. 状态设置： moveTo\lineTo\lineWidth\strokeStyle\fillStyle\...<br/>
