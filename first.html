@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>first</title>
+  <style>
+    *{margin:0;padding:0;}
+    .div{width:800px;height:600px;text-align:center;margin:0 auto;}
+    .div canvas{border:1px solid #ccc;margin:50px;display:inline-block;}
+  </style>
+</head>
+<body>
+<div class="div">
+  <canvas id="canvas"></canvas>
+  <canvas id="canvas2"></canvas>
+  <canvas id="canvas3"></canvas>
+  <canvas id="canvas4"></canvas>
+</div>
+
+<script>
+  window.onload = function() {
+    let ca = document.getElementById('canvas');
+    let ca2 = document.getElementById('canvas2');
+    let ca3 = document.getElementById('canvas3');
+    let ca4 = document.getElementById('canvas4');
+
+    ca.width = 80;
+    ca.height = 80;
+    ca2.width = 80;
+    ca2.height = 80;
+    ca3.width = 80;
+    ca3.height = 80;
+    ca4.width = 80;
+    ca4.height = 80;
+
+    let context = ca.getContext("2d");
+
+    context.moveTo(10, 35);
+    context.lineTo(50, 35);
+    context.lineTo(50, 20);
+    context.lineTo(70, 40);
+    context.lineTo(50, 60);
+    context.lineTo(50, 45);
+    context.lineTo(10, 45);
+
+    context.lineWidth = 2;
+    context.strokeStyle = "#cbcd6e";          // →右箭头
+
+    context.stroke();
+
+
+
+    let context2 = ca2.getContext("2d");
+
+    context2.moveTo(10, 20);
+    context2.lineTo(30, 40);
+    context2.lineTo(10, 60);
+
+    context2.moveTo(30, 20);
+    context2.lineTo(50, 40);
+    context2.lineTo(30, 60);
+
+    context2.moveTo(50, 20);
+    context2.lineTo(70, 40);
+    context2.lineTo(50, 60);
+
+    context2.lineWidth = 2;
+    context2.strokeStyle = "#cc9c8a";       // same color 相同的颜色
+
+    context2.stroke();
+
+    let context3 = ca3.getContext("2d");
+    context3.lineWidth = 2;
+
+    context3.moveTo(30, 20);
+    context3.lineTo(10, 40);
+    context3.lineTo(30, 60);
+    context3.strokeStyle = "#305cca";
+    context3.stroke();
+
+    context3.beginPath();
+    context3.moveTo(50, 20);
+    context3.lineTo(30, 40);
+    context3.lineTo(50, 60);
+    context3.strokeStyle = "#c9ca69";
+    context3.stroke();
+
+    context3.beginPath();
+    context3.moveTo(70, 20);
+    context3.lineTo(50, 40);
+    context3.lineTo(70, 60);
+    context3.strokeStyle = "#ca49c1";       // different color 不同的颜色
+
+    context3.stroke();
+
+    let context4 = ca4.getContext("2d");
+
+    context4.beginPath();
+    context4.moveTo(10, 40);
+    context4.lineTo(30, 20);
+    context4.lineTo(30, 35);
+    context4.lineTo(70, 35);
+    context4.lineTo(70, 45);
+    context4.lineTo(30, 45);
+    context4.lineTo(30, 60);
+    context4.closePath();             // 封闭多边形
+
+    context4.lineWidth = 3;
+    context4.fillStyle = "#fffd59";
+    context4.fill();
+    context4.strokeStyle = "#2642cc";
+
+    context4.stroke();
+
+  }
+
+</script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

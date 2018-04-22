@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>firstEncapsulation</title>
+  <style>
+    *{margin:0;padding:0;}
+    .div{width:800px;height:600px;text-align:center;margin:0 auto;}
+    .div canvas{border:1px solid #ccc;margin:50px;display:inline-block;}
+  </style>
+</head>
+<body>
+<div class="div">
+  <canvas id="canvas"></canvas>
+</div>
+<script>
+  window.onload = function() {
+    const canvas = document.getElementById('canvas');
+
+    canvas.width = 80;
+    canvas.height = 80;
+
+    const context = canvas.getContext('2d');
+    contextFun(context, 40, 10, 10, 40, 40, 70, 70, 40, 3, '#ff0000', '#ca6ac6');
+
+    // 封装一个通用的绘制方法
+    function contextFun(obj, x, y, x2, y2, x3, y3, x4, y4, borderWidth, borderColor, fillColor) {
+      obj.beginPath();
+      obj.moveTo(x, y);
+      obj.lineTo(x2, y2);
+      obj.lineTo(x3, y3);
+      obj.lineTo(x4, y4);
+      obj.closePath();
+
+      obj.lineWidth = borderWidth;
+      obj.strokeStyle = borderColor;
+      obj.fillStyle = fillColor;
+
+      obj.fill();
+      obj.stroke();
+    }
+  }
+</script>
+</body>
+</html>
