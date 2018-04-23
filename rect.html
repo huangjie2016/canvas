@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>cover</title>
+  <style>
+    *{margin:0;padding:0;}
+    .div{width:800px;height:600px;text-align:center;margin:0 auto;}
+    .div canvas{border:1px solid #ccc;margin:50px;display:inline-block;}
+  </style>
+</head>
+<body>
+<div class="div">
+  <canvas id="canvas"></canvas>
+</div>
+<script>
+  const cvs = document.getElementById('canvas');
+  cvs.width = 80;
+  cvs.height = 80;
+
+  const context = cvs.getContext('2d');
+  drawRect(context, 10, 10, 40, 40, 2, '#058', 'red');
+  drawRect2(context, 30, 30, 40, 40, 2, '#058', 'rgba(0,256,0,0.5)');
+  function drawRect(obj, x, y, width, height, borderWidth, borderColor, fillColor){
+    obj.beginPath();
+    obj.rect(x, y, width, height);    // 自动完成矩形绘制
+    obj.closePath();
+
+    obj.lineWidth = borderWidth;
+    obj.strokeStyle = borderColor;
+    obj.fillStyle = fillColor;
+
+    obj.fill();
+    obj.stroke();
+  }
+
+  function drawRect2(obj, x, y, width, height, borderWidth, borderColor, fillColor){
+    obj.lineWidth = borderWidth;
+    obj.strokeStyle = borderColor;
+    obj.fillStyle = fillColor;
+
+    obj.fillRect(x, y, width, height);    // 自动完成矩形绘制加样式
+    obj.strokeRect(x, y, width, height);    // 自动完成矩形边框绘制加样式
+  }
+
+</script>
+</body>
+</html>
