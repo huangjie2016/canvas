@@ -13,6 +13,8 @@ canvas study
 5. beginPath()配合closePath() 可以无缺口完美封闭绘制的多边形。<br/>
 6. 填充色：fillStyle，之后要执行fill()才能生效，如果要给边框加颜色也要在fill()方法之后添加，否则边框的宽度会变小。<br/>
 7. rect可以自动完成矩形绘制，fillRect&strokeRect分别设置自动完成矩形样式、绘制。<br/>
+8. lineCap可以设置线条开始和结尾的样式：butt(default),round(线条两端突出的圆角),square(线条两端突出的平头)
+9. lineJoin可以设置多条线条相交的样式：miter(default),bevel(平头),round(圆角)
 
 ### 日常填坑记录
 1. 创建canvas元素要使用canvas标签，用div浏览器会报错，没有getContext方法。<br/>

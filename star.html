@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>star</title>
+  <style>
+    *{margin:0;padding:0;}
+    .div{width:800px;height:600px;text-align:center;margin:0 auto;}
+    .div canvas{border:1px solid #ccc;margin:50px;display:inline-block;}
+  </style>
+</head>
+<body>
+<div class="div">
+  <button onclick="changeStars()">点我移星换位</button>
+  <canvas id="canvas"></canvas>
+</div>
+  <script>
+    const cvs = document.getElementById('canvas');
+    cvs.width = 800;
+    cvs.height = 800;
+    let context = cvs.getContext('2d');
+
+    context.fillStyle = '#000';
+    context.fillRect(0, 0, cvs.width, cvs.height);
+
+  function changeStars() {
+    cvs.height = 800;
+    context.fillStyle = '#000';
+    context.fillRect(0, 0, cvs.width, cvs.height);
+    for(let i=0; i<60; i++) {
+      const r = Math.random() * 10 + 4;
+      const x = Math.random() * cvs.width;
+      const y = Math.random() * cvs.height;
+      const a = Math.random() * 360;
+      drawStar(context, x, y, r, r/2, a);
+    }
+  }
+    changeStars();
+
+    function drawStar(obj, x, y, r, R, rot) {
+      obj.beginPath();
+      for(let i=0; i<5; i++) {
+        obj.lineTo(
+          Math.cos((18 + i*72 - rot)/180 * Math.PI) * R + x,
+          -Math.sin((18 + i*72 - rot)/180 * Math.PI) * R + y
+        );
+        obj.lineTo(
+          Math.cos((54+ i*72 - rot)/180 * Math.PI) * r + x,
+          -Math.sin((54+ i*72 - rot)/180 * Math.PI) * r + y
+        )
+      }
+      obj.closePath();
+
+      obj.fillStyle = '#fafbff';
+      obj.strokeStyle = '#edfffa';
+      obj.lineWidth = 2;
+      obj.lineJoin = 'round';     // 设置线条相交处的过渡效果miter(default),bevel(平头),round(圆角)
+
+      obj.fill();
+      obj.stroke();
+    }
+
+  </script>
+</body>
+</html>
